@@ -1,0 +1,46 @@
+﻿@model IEnumerable<CFMS.Models.Feedback>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Category)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubmissionDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Category)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubmissionDate)
+                </td>
+                <td>
+
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" onclick="LoadModalContent('/Feedbacks/Edit/' + @item.FeedbackId)" data-target="#modalCreate">Edit</button>
+                   <a asp-action="Details" asp-route-id="@item.FeedbackId">Details</a> |
+                   <a asp-action="Delete" asp-route-id="@item.FeedbackId">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

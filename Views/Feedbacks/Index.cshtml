@@ -1,0 +1,26 @@
+﻿@model IEnumerable<CFMS.Models.Feedback>
+
+@{
+    ViewData["Title"] = "Feedbacks";
+}
+
+<h1>Feedbacks</h1>
+
+<p>    
+    <button type="button" class="btn btn-sm btn-success pull-right" data-toggle="modal" data-target="#modalCreate" onclick="LoadModalContent('/Feedbacks/Create')">Add new</button>
+</p>
+
+<div id="containerList">
+    <!-- partial view to render feedbacks list and realoading using ajax call -->
+    @Html.Partial("_List", Model)
+</div>
+
+
+<div class="modal fade" role="dialog" id="modalCreate" data-backdrop="false">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body" id="modalContent">
+            </div>
+        </div>
+    </div>
+</div>

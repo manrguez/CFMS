@@ -1,0 +1,44 @@
+﻿@model IEnumerable<CFMS.Models.Response>
+
+<h1>Responses</h1>
+
+<p>
+    <button type="button" class="btn btn-sm btn-success pull-right" data-toggle="modal" data-target="#modalCreate" onclick="LoadModalContent('/Responses/Create/' + @ViewData["FeedbackId"])">Add new</button>
+</p>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CustomerName)
+            </th>           
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SubmissionDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody id="tbody">
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CustomerName)
+                </td>               
+                <td>
+                    @Html.DisplayFor(modelItem => item.Description)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.SubmissionDate)
+                </td>
+                <td>
+                    <button class="btn btn-sm btn-primary" data-toggle="modal" onclick="LoadModalContent('/Responses/Edit/' + @item.ResponseId)" data-target="#modalCreate">Edit</button>
+                    <a asp-action="Delete" asp-route-id="@item.ResponseId" asp-controller="Responses">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

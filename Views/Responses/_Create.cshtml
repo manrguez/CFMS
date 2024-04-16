@@ -1,0 +1,34 @@
+﻿@model CFMS.Models.Response
+
+<div class="modal-header">
+    <h2>Add Response</h2>
+    <button class="btn btn-sm pull-right btn-danger" type="button" id="btnClose" data-dismiss="modal">X</button>
+</div>
+
+<div class="modal-body">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal" id="CreateFrm">
+            @Html.HiddenFor(model => model.FeedbackId)
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.CustomerName, htmlAttributes: new { @class = "control-label col-md-6" })
+                <div class="col-md-12">
+                    @Html.EditorFor(model => model.CustomerName, new { htmlAttributes = new { @class = "form-control", id="CustomerName", name="CustomerName" } })
+                </div>
+            </div>           
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.Description, htmlAttributes: new { @class = "control-label col-md-6" })
+                <div class="col-md-12">
+                    @Html.TextAreaFor(model => model.Description, new { name="Description", id="Description", rows = 10, cols = 50 })
+                </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+            <input type="button" value="Save" class="btn btn-primary" onclick="Create('Responses')" />
+        </div>
+    }
+</div>
