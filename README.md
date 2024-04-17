@@ -9,6 +9,6 @@ To be able to run the application you should perform the followin steps:
 
 The application was developed using MVC and Repository patterns. This implementation is to have a better code organization, to reuse repositories among the controllers, and to reduce the risk of duplicating code therefore easier maintenance.
 
-For error handling, a global exception handler was implemented to generate detailed text files with error info.
+For error handling, a global exception handler was implemented to generate detailed text files with error info pleced at ErrorLogs folder.
 
 The application enables you to provide feedback and view a list of recent records from the past 30 days. In the feedback details, you will find a section for responses where you can add, edit, and view a list of responses.

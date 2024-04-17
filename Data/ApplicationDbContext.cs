@@ -25,7 +25,7 @@ namespace CFMS.Data
                 .HasOne(r => r.Feedback)
                 .WithMany(f => f.Responses)
                 .HasForeignKey(r => r.FeedbackId)
-                .OnDelete(DeleteBehavior.Restrict);
+                .OnDelete(DeleteBehavior.Cascade);
         }
     }
 }

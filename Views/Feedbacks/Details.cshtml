@@ -1,8 +1,7 @@
 ﻿@model CFMS.Models.Feedback
 
 @{
-    ViewData["Title"] = "Details";
-    ViewData["FeedbackId"] = Model.FeedbackId;
+    ViewData["Title"] = "Details";   
 }
 
 <h1>Details</h1>
@@ -37,6 +36,12 @@
             @Html.DisplayFor(model => model.SubmissionDate)
         </dd>
     </dl>
+
+    <h1>Responses</h1>
+
+    <p>       
+        <button type="button" class="btn btn-sm btn-success pull-right" data-toggle="modal" data-target="#modalCreate" onclick="LoadModalContent('/Responses/Create/' + @Model.FeedbackId)">Add new</button>
+    </p>
 
     <div id="containerList">
         @Html.Partial("~/Views/Responses/_List.cshtml", Model.Responses)
